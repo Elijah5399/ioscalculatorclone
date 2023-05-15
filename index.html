@@ -18,31 +18,84 @@
           <h2 id="displayedNumber">0</h2>
         </div>
         <div class="buttonsArea">
-          <button class="buttons topRowButtons">AC</button>
-          <button class="buttons topRowButtons">±</button>
-          <button class="buttons topRowButtons">%</button>
-          <button class="buttons calculationButtons topRowButtons">÷</button>
+          <button class="buttons topRowButtons" id="AC" onclick="AC()">
+            AC
+          </button>
+          <button class="buttons topRowButtons" onclick="plusMinus()">±</button>
+          <button class="buttons topRowButtons" onclick="percent()">%</button>
+          <button
+            class="buttons calculationButtons"
+            onclick="divide()"
+            id="divide"
+          >
+            ÷
+          </button>
 
-          <button class="buttons numberButtons">7</button>
-          <button class="buttons numberButtons">8</button>
-          <button class="buttons numberButtons">9</button>
-          <button class="buttons calculationButtons">x</button>
+          <button class="buttons numberButtons" onclick="seven()" id="seven">
+            7
+          </button>
+          <button class="buttons numberButtons" onclick="eight()" id="eight">
+            8
+          </button>
+          <button class="buttons numberButtons" onclick="nine()" id="nine">
+            9
+          </button>
+          <button
+            class="buttons calculationButtons"
+            onclick="multiply()"
+            id="multiply"
+          >
+            x
+          </button>
 
-          <button class="buttons numberButtons">4</button>
-          <button class="buttons numberButtons">5</button>
-          <button class="buttons numberButtons">6</button>
-          <button class="buttons calculationButtons">-</button>
+          <button class="buttons numberButtons" onclick="four()" id="four">
+            4
+          </button>
+          <button class="buttons numberButtons" onclick="five()" id="five">
+            5
+          </button>
+          <button class="buttons numberButtons" onclick="six()" id="six">
+            6
+          </button>
+          <button
+            class="buttons calculationButtons"
+            onclick="minus()"
+            id="minus"
+          >
+            -
+          </button>
 
-          <button class="buttons numberButtons">1</button>
-          <button class="buttons numberButtons">2</button>
-          <button class="buttons numberButtons">3</button>
-          <button class="buttons calculationButtons">+</button>
+          <button class="buttons numberButtons" onclick="one()" id="one">
+            1
+          </button>
+          <button class="buttons numberButtons" onclick="two()" id="two">
+            2
+          </button>
+          <button class="buttons numberButtons" onclick="three()" id="three">
+            3
+          </button>
+          <button class="buttons calculationButtons" onclick="plus()" id="plus">
+            +
+          </button>
 
-          <button class="buttons numberButtons" id="zeroButton">0</button>
-          <button class="buttons numberButtons">.</button>
-          <button class="buttons calculationButtons">=</button>
+          <button
+            class="buttons numberButtons"
+            id="zeroButton"
+            onclick="zero()"
+          >
+            0
+          </button>
+          <button class="buttons numberButtons" onclick="dot()">.</button>
+          <button
+            class="buttons calculationButtons"
+            onclick="equals()"
+            id="equals"
+          >
+            =
+          </button>
         </div>
       </div>
     </div>
+    <script src="calculations2.js"></script>
   </body>
 </html>
