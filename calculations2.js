@@ -11,10 +11,11 @@ var operator = null;
 //number buttons
 function zero() {
   resetCalcButtonColors();
-  if (displayedValue === "0" || displayedValue === "") {
-    displayedValue = "0";
-  } else if (displayedValue === "-" || displayedValue === "-0") {
-    displayedValue = "-0";
+  if (displayedValue === "" || displayedValue === "-") {
+    //do nothing to displayedValue
+    document.getElementById("displayedNumber").innerHTML = displayedValue + "0";
+    operatorJustClicked = false;
+    return;
   } else if (operatorJustClicked) {
     storedValue = displayedValue;
     displayedValue = "0";
@@ -161,6 +162,15 @@ function AC() {
 
 //changes the positivity of the current value
 function plusMinus() {
+  if (displayedValue === "") {
+    displayedValue = "-";
+    document.getElementById("displayedNumber").innerHTML = displayedValue + "0";
+    return;
+  } else if (displayedValue === "-") {
+    displayedValue = "";
+    document.getElementById("displayedNumber").innerHTML = "0";
+    return;
+  }
   if (displayedValue[0] == "-") {
     displayedValue = displayedValue.substring(1);
   } else {
