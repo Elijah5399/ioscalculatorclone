@@ -45,8 +45,7 @@
   cursor: pointer;
 }
 .calculationButtons {
-  /* background-color: #ffbb00; */
-  background-color: #e6d6ef;
+  background-color: #ffbb00;
   color: white;
 }
 .numberButtons {
