@@ -11,7 +11,11 @@ var operator = null;
 //number buttons
 function zero() {
   resetCalcButtonColors();
-  if (operatorJustClicked) {
+  if (displayedValue === "0" || displayedValue === "") {
+    displayedValue = "0";
+  } else if (displayedValue === "-" || displayedValue === "-0") {
+    displayedValue = "-0";
+  } else if (operatorJustClicked) {
     storedValue = displayedValue;
     displayedValue = "0";
   } else {
