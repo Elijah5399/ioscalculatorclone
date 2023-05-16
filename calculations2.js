@@ -194,7 +194,8 @@ function divide() {
   if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
   document.getElementById("divide").style.backgroundColor = "#edeff2";
-  document.getElementById("divide").style.color = "#ffbb00";
+  //document.getElementById("divide").style.color = "#ffbb00";
+  document.getElementById("divide").style.color = "#e6d6ef";
   if (operatorJustClicked) {
     //do nothing
   } else {
@@ -217,7 +218,8 @@ function plus() {
   if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
   document.getElementById("plus").style.backgroundColor = "#edeff2";
-  document.getElementById("plus").style.color = "#ffbb00";
+  //document.getElementById("plus").style.color = "#ffbb00";
+  document.getElementById("plus").style.color = "#e6d6ef";
   if (operatorJustClicked) {
     //do nothing
   } else {
@@ -240,7 +242,8 @@ function minus() {
   if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
   document.getElementById("minus").style.backgroundColor = "#edeff2";
-  document.getElementById("minus").style.color = "#ffbb00";
+  //document.getElementById("minus").style.color = "#ffbb00";
+  document.getElementById("minus").style.color = "#e6d6ef";
   if (operatorJustClicked) {
     //do nothing
   } else {
@@ -259,11 +262,12 @@ function minus() {
 }
 
 function multiply() {
+  resetCalcButtonColors();
   displayedValue = Number(displayedValue);
   if (storedValue != null) storedValue = Number(storedValue);
-  resetCalcButtonColors();
   document.getElementById("multiply").style.backgroundColor = "#edeff2";
-  document.getElementById("multiply").style.color = "#ffbb00";
+  //document.getElementById("multiply").style.color = "#ffbb00";
+  document.getElementById("multiply").style.color = "#e6d6ef";
   if (operatorJustClicked) {
     //do nothing
   } else {
@@ -343,13 +347,17 @@ function equals() {
 }
 function resetCalcButtonColors() {
   document.getElementById("divide").style.color = "white";
-  document.getElementById("divide").style.backgroundColor = "#ffbb00";
+  //document.getElementById("divide").style.backgroundColor = "#ffbb00";
+  document.getElementById("divide").style.backgroundColor = "#e6d6ef";
   document.getElementById("multiply").style.color = "white";
-  document.getElementById("multiply").style.backgroundColor = "#ffbb00";
+  //document.getElementById("multiply").style.backgroundColor = "#ffbb00";
+  document.getElementById("multiply").style.backgroundColor = "#e6d6ef";
   document.getElementById("minus").style.color = "white";
-  document.getElementById("minus").style.backgroundColor = "#ffbb00";
+  //document.getElementById("minus").style.backgroundColor = "#ffbb00";
+  document.getElementById("minus").style.backgroundColor = "#e6d6ef";
   document.getElementById("plus").style.color = "white";
-  document.getElementById("plus").style.backgroundColor = "#ffbb00";
+  //document.getElementById("plus").style.backgroundColor = "#ffbb00";
+  document.getElementById("plus").style.backgroundColor = "#e6d6ef";
 }
 //a utility function which counts the DP of a stringified number
 var countDecimals = function (value) {
