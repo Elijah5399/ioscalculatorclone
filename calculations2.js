@@ -1,13 +1,9 @@
 //the main program logic is implemented here
-//firstArg and secondArg can be floating point values or integers
+//firstArg and secondArg are internally stored as STRINGS
 //firstArg is never null
-var displayedValue = 0;
+var displayedValue = "";
 var storedValue = null;
 var operatorJustClicked = false;
-var makingDecimal = false;
-
-//currentlyFilling 1 means we filling firstArg. currentlyFilling 2 means we filling secondArg.
-//var currentlyFilling = 1;
 
 //operator can be ÷, x, + or -
 var operator = null;
@@ -17,9 +13,9 @@ function zero() {
   resetCalcButtonColors();
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 0;
+    displayedValue = "0";
   } else {
-    displayedValue = displayedValue * 10;
+    displayedValue = displayedValue + "0";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -30,9 +26,9 @@ function one() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 1;
+    displayedValue = "1";
   } else {
-    displayedValue = displayedValue * 10 + 1;
+    displayedValue = displayedValue + "1";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -43,9 +39,9 @@ function two() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 2;
+    displayedValue = "2";
   } else {
-    displayedValue = displayedValue * 10 + 2;
+    displayedValue = displayedValue + "2";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -56,9 +52,9 @@ function three() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 3;
+    displayedValue = "3";
   } else {
-    displayedValue = displayedValue * 10 + 3;
+    displayedValue = displayedValue + "3";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -69,9 +65,9 @@ function four() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 4;
+    displayedValue = "4";
   } else {
-    displayedValue = displayedValue * 10 + 4;
+    displayedValue = displayedValue + "4";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -82,9 +78,9 @@ function five() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 5;
+    displayedValue = "5";
   } else {
-    displayedValue = displayedValue * 10 + 5;
+    displayedValue = displayedValue + "5";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -95,9 +91,9 @@ function six() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 6;
+    displayedValue = "6";
   } else {
-    displayedValue = displayedValue * 10 + 6;
+    displayedValue = displayedValue + "6";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -108,9 +104,9 @@ function seven() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 7;
+    displayedValue = "7";
   } else {
-    displayedValue = displayedValue * 10 + 7;
+    displayedValue = displayedValue + "7";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -121,9 +117,9 @@ function eight() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 8;
+    displayedValue = "8";
   } else {
-    displayedValue = displayedValue * 10 + 8;
+    displayedValue = displayedValue + "8";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -134,9 +130,9 @@ function nine() {
   document.getElementById("AC").innerHTML = "C";
   if (operatorJustClicked) {
     storedValue = displayedValue;
-    displayedValue = 9;
+    displayedValue = "9";
   } else {
-    displayedValue = displayedValue * 10 + 9;
+    displayedValue = displayedValue + "9";
   }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
   operatorJustClicked = false;
@@ -145,35 +141,43 @@ function nine() {
 //decimal
 function dot() {
   resetCalcButtonColors();
-  makingDecimal = true;
+  displayedValue += ".";
 }
 
 //AC resets all previous calculations
 function AC() {
-  document.getElementById("");
+  resetCalcButtonColors();
   document.getElementById("AC").innerHTML = "AC";
-  displayedValue = 0;
+  displayedValue = "";
   storedValue = null;
   operator = null;
   operatorJustClicked = false;
-  document.getElementById("displayedNumber").innerHTML = displayedValue;
+  document.getElementById("displayedNumber").innerHTML = "0";
 }
 
 //changes the positivity of the current value
 function plusMinus() {
-  displayedValue = -1 * displayedValue;
+  if (displayedValue[0] == "-") {
+    displayedValue = displayedValue.substring(1);
+  } else {
+    displayedValue = "-" + displayedValue;
+  }
   document.getElementById("displayedNumber").innerHTML = displayedValue;
 }
 
 //causes a division of the current value by 100
 function percent() {
-  displayedValue = displayedValue / 100;
+  displayedValue = Number(displayedValue);
+  displayedValue /= 100;
+  displayedValue = displayedValue.toString();
   document.getElementById("displayedNumber").innerHTML = displayedValue;
 }
 
 //Normal calculation operations
 function divide() {
-  makingDecimal = false;
+  //makingDecimal = false;
+  displayedValue = Number(displayedValue);
+  if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
   document.getElementById("divide").style.backgroundColor = "#edeff2";
   document.getElementById("divide").style.color = "#ffbb00";
@@ -189,12 +193,15 @@ function divide() {
     }
     operatorJustClicked = true;
   }
+  displayedValue = displayedValue.toString();
+  if (storedValue != null) storedValue = storedValue.toString();
   operator = "÷";
 }
 
 function plus() {
+  displayedValue = Number(displayedValue);
+  if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
-  makingDecimal = false;
   document.getElementById("plus").style.backgroundColor = "#edeff2";
   document.getElementById("plus").style.color = "#ffbb00";
   if (operatorJustClicked) {
@@ -209,12 +216,15 @@ function plus() {
     }
     operatorJustClicked = true;
   }
+  displayedValue = displayedValue.toString();
+  if (storedValue != null) storedValue = storedValue.toString();
   operator = "+";
 }
 
 function minus() {
+  displayedValue = Number(displayedValue);
+  if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
-  makingDecimal = false;
   document.getElementById("minus").style.backgroundColor = "#edeff2";
   document.getElementById("minus").style.color = "#ffbb00";
   if (operatorJustClicked) {
@@ -229,11 +239,14 @@ function minus() {
     }
     operatorJustClicked = true;
   }
+  displayedValue = displayedValue.toString();
+  if (storedValue != null) storedValue = storedValue.toString();
   operator = "-";
 }
 
 function multiply() {
-  makingDecimal = false;
+  displayedValue = Number(displayedValue);
+  if (storedValue != null) storedValue = Number(storedValue);
   resetCalcButtonColors();
   document.getElementById("multiply").style.backgroundColor = "#edeff2";
   document.getElementById("multiply").style.color = "#ffbb00";
@@ -249,13 +262,16 @@ function multiply() {
     }
     operatorJustClicked = true;
   }
+  displayedValue = displayedValue.toString();
+  if (storedValue != null) storedValue = storedValue.toString();
   operator = "x";
 }
 
 //when equals button is pressed
 function equals() {
   resetCalcButtonColors();
-  makingDecimal = false;
+  displayedValue = Number(displayedValue);
+  if (storedValue != null) storedValue = Number(storedValue);
   if (operatorJustClicked) {
     if (storedValue == null) {
       storedValue = displayedValue;
@@ -268,6 +284,7 @@ function equals() {
       } else if (operator == "x") {
         displayedValue = displayedValue * displayedValue;
         document.getElementById("displayedNumber").innerHTML = displayedValue;
+        console.log("Line A");
       } else if (operator == "÷") {
         displayedValue = 1;
         document.getElementById("displayedNumber").innerHTML = displayedValue;
@@ -307,6 +324,8 @@ function equals() {
     storedValue = stored2;
     operatorJustClicked = true;
   }
+  if (storedValue != null) storedValue = storedValue.toString();
+  displayedValue = displayedValue.toString();
 }
 function resetCalcButtonColors() {
   document.getElementById("divide").style.color = "white";
@@ -318,3 +337,8 @@ function resetCalcButtonColors() {
   document.getElementById("plus").style.color = "white";
   document.getElementById("plus").style.backgroundColor = "#ffbb00";
 }
+//a utility function which counts the DP of a stringified number
+var countDecimals = function (value) {
+  if (!value.includes(".")) return 0;
+  return value.split(".")[1].length;
+};
